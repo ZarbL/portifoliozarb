@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useTheme } from '../../contexts/ThemeContext'
 import logoDark from '../../assets/zarbdark.png'
 import logoWhite from '../../assets/zarbwhite.png'
+import { Switch } from '../Switch/Switch'
 import styles from './Navbar.module.css'
 
 const navLinks = [
@@ -13,7 +14,7 @@ const navLinks = [
 ]
 
 export function Navbar() {
-  const { theme, toggleTheme } = useTheme()
+  const { theme } = useTheme()
   const [menuOpen, setMenuOpen] = useState(false)
 
   const logo = theme === 'dark' ? logoWhite : logoDark
@@ -35,13 +36,7 @@ export function Navbar() {
       </ul>
 
       <div className={styles.actions}>
-        <button
-          className={styles.themeToggle}
-          onClick={toggleTheme}
-          aria-label="Toggle theme"
-        >
-          {theme === 'dark' ? '☀' : '☾'}
-        </button>
+        <Switch />
 
         <button
           className={`${styles.hamburger} ${menuOpen ? styles.active : ''}`}
