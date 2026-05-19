@@ -1,12 +1,13 @@
 import { ThemeProvider } from './contexts/ThemeContext'
 import { Navbar } from './components/Navbar/Navbar'
+import { Hero } from './components/Hero/Hero'
 
 function App() {
   return (
     <ThemeProvider>
       <Navbar />
-      <main style={{ paddingTop: '68px' }}>
-        {/* sections coming soon */}
+      <main>
+        <Hero />
       </main>
     </ThemeProvider>
   )
