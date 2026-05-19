@@ -1,0 +1,57 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0a0a0a;
+  --surface: #141414;
+  --border: #222;
+  --text: #f0f0f0;
+  --text-secondary: #888;
+}
+
+:root[data-theme='dark'] {
+  --bg: #0a0a0a;
+  --surface: #141414;
+  --border: #222;
+  --text: #f0f0f0;
+  --text-secondary: #888;
+}
+
+:root[data-theme='light'] {
+  --bg: #fafafa;
+  --surface: #f0f0f0;
+  --border: #ddd;
+  --text: #0a0a0a;
+  --text-secondary: #555;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
