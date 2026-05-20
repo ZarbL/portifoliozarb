@@ -6,19 +6,13 @@
   z-index: 100;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 2.5rem;
   height: 68px;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  transition: background 0.3s ease, border-color 0.3s ease;
+  background: transparent;
+  border-bottom: none;
 }
 
-.logo img {
-  height: 36px;
-  width: auto;
-  display: block;
-}
 
 .links {
   display: flex;
@@ -59,6 +53,8 @@
 }
 
 .actions {
+  position: absolute;
+  right: 2.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;

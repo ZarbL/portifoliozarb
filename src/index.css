@@ -4,12 +4,36 @@
   padding: 0;
 }
 
+@font-face {
+  font-family: 'D-DIN';
+  src: url('./assets/fonts/d-din-400.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'D-DIN';
+  src: url('./assets/fonts/d-din-700.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
 :root {
-  --bg: #0a0a0a;
-  --surface: #141414;
-  --border: #222;
-  --text: #f0f0f0;
-  --text-secondary: #888;
+  --bg: #e9e9e7;
+  --surface: #dededc;
+  --border: #d0d0ce;
+  --text: #0a0a0a;
+  --text-secondary: #555;
+}
+
+:root[data-theme='light'] {
+  --bg: #e9e9e7;
+  --surface: #dededc;
+  --border: #d0d0ce;
+  --text: #0a0a0a;
+  --text-secondary: #555;
 }
 
 :root[data-theme='dark'] {
@@ -18,14 +42,6 @@
   --border: #222;
   --text: #f0f0f0;
   --text-secondary: #888;
-}
-
-:root[data-theme='light'] {
-  --bg: #fafafa;
-  --surface: #f0f0f0;
-  --border: #ddd;
-  --text: #0a0a0a;
-  --text-secondary: #555;
 }
 
 html {
@@ -51,6 +67,7 @@ button {
 }
 
 #root {
+  position: relative;
   min-height: 100svh;
   display: flex;
   flex-direction: column;

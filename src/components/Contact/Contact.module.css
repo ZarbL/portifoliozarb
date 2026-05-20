@@ -1,0 +1,237 @@
+.contact {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: clamp(2rem, 4vw, 3rem);
+  padding: 8rem 8vw;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.copy {
+  display: grid;
+  gap: 0.55rem;
+  text-align: center;
+}
+
+.copy p {
+  color: #ff4fa3;
+  font-family: 'D-DIN', 'Arial Narrow', Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.copy h2 {
+  color: var(--text);
+  font-family: 'D-DIN', 'Arial Narrow', Arial, sans-serif;
+  font-size: clamp(3.2rem, 9vw, 8rem);
+  font-weight: 700;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.formCard {
+  width: min(100%, 34rem);
+  padding: 1px;
+  border-radius: 22px;
+  background-image: linear-gradient(163deg, #ff4fa3 0%, #ff79b8 100%);
+  transition: box-shadow 0.3s ease;
+}
+
+.formCard:hover {
+  box-shadow: 0 0 30px 1px color-mix(in srgb, #ff4fa3 32%, transparent);
+}
+
+.formInner {
+  border-radius: 21px;
+  transition: transform 0.2s ease, border-radius 0.2s ease;
+}
+
+.formInner:hover {
+  border-radius: 20px;
+  transform: scale(0.985);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 2em 0.4em;
+  border-radius: 20px;
+  background-color: #171717;
+}
+
+.formHeading {
+  align-self: center;
+  margin: 2em;
+  color: #ff4fa3;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.formField {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 0.6em;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  background-color: #171717;
+  box-shadow: inset 2px 5px 10px rgb(5 5 5);
+  color: white;
+}
+
+.inputField {
+  width: 100%;
+  padding-inline: 1em;
+  border: none;
+  outline: none;
+  background: none;
+  color: #f4d8e8;
+  font: inherit;
+  resize: vertical;
+}
+
+.inputField::placeholder {
+  color: color-mix(in srgb, #f4d8e8 48%, transparent);
+}
+
+.sendMessageBtn {
+  margin-bottom: 3em;
+  padding: 1em;
+  border: none;
+  border-radius: 10px;
+  outline: 1px solid #ff4fa3;
+  background-color: transparent;
+  color: #ff4fa3;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.sendMessageBtn:hover {
+  background-color: #ff4fa3;
+  box-shadow: inset 2px 5px 10px rgb(5 5 5);
+  color: #000;
+}
+
+.socialList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.iconContent {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  padding: 6px 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: opacity 0.3s ease, top 0.3s ease, visibility 0.3s ease;
+  visibility: hidden;
+}
+
+.iconContent:hover .tooltip {
+  top: -50px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.iconContent a {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #4d4d4d;
+  transition: box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.iconContent a:hover {
+  box-shadow: 3px 2px 45px 0 rgb(0 0 0 / 12%);
+  color: white;
+}
+
+.iconContent a svg {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+}
+
+.filled {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #000;
+  transition: height 0.3s ease;
+}
+
+.iconContent a:hover .filled {
+  height: 100%;
+}
+
+.iconContent a[data-social='linkedin'] .filled,
+.iconContent a[data-social='linkedin'] ~ .tooltip {
+  background-color: #0274b3;
+}
+
+.iconContent a[data-social='github'] .filled,
+.iconContent a[data-social='github'] ~ .tooltip {
+  background-color: #24262a;
+}
+
+.iconContent a[data-social='instagram'] .filled,
+.iconContent a[data-social='instagram'] ~ .tooltip {
+  background: linear-gradient(
+    45deg,
+    #405de6,
+    #5b51db,
+    #b33ab4,
+    #c135b4,
+    #e1306c,
+    #fd1f1f
+  );
+}
+
+.iconContent a[data-social='youtube'] .filled,
+.iconContent a[data-social='youtube'] ~ .tooltip {
+  background-color: #ff0000;
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 6rem 6vw;
+  }
+
+  .form {
+    padding-inline: 1.25em;
+  }
+
+  .socialList {
+    flex-wrap: wrap;
+  }
+}

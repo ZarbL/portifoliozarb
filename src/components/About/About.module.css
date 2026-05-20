@@ -1,0 +1,172 @@
+.about {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(2rem, 5vw, 6rem);
+  padding: 8rem 8vw;
+  background: var(--bg);
+  font-family: 'D-DIN', 'Arial Narrow', Arial, sans-serif;
+  overflow: hidden;
+}
+
+.about::before,
+.about::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.about::before {
+  opacity: 0.58;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--text) 7%, transparent) 1px, transparent 1px) 0 0 / 5rem 5rem,
+    linear-gradient(color-mix(in srgb, var(--text) 7%, transparent) 1px, transparent 1px) 0 0 / 5rem 5rem,
+    linear-gradient(135deg, transparent 49.6%, color-mix(in srgb, var(--text) 12%, transparent) 50%, transparent 50.4%) 78% 12% / 18rem 18rem no-repeat,
+    linear-gradient(45deg, transparent 49.6%, color-mix(in srgb, var(--text) 10%, transparent) 50%, transparent 50.4%) 8% 74% / 20rem 20rem no-repeat;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.about::after {
+  opacity: 0.5;
+  background:
+    linear-gradient(color-mix(in srgb, var(--text) 12%, transparent), color-mix(in srgb, var(--text) 12%, transparent)) 10% 18% / 11rem 1px no-repeat,
+    linear-gradient(90deg, color-mix(in srgb, var(--text) 12%, transparent), color-mix(in srgb, var(--text) 12%, transparent)) 10% 18% / 1px 11rem no-repeat,
+    linear-gradient(color-mix(in srgb, var(--text) 10%, transparent), color-mix(in srgb, var(--text) 10%, transparent)) 73% 35% / 15rem 1px no-repeat,
+    linear-gradient(90deg, color-mix(in srgb, var(--text) 10%, transparent), color-mix(in srgb, var(--text) 10%, transparent)) 88% 35% / 1px 8rem no-repeat,
+    linear-gradient(color-mix(in srgb, var(--text) 7%, transparent), color-mix(in srgb, var(--text) 7%, transparent)) 55% 83% / 18rem 1px no-repeat,
+    linear-gradient(90deg, color-mix(in srgb, var(--text) 7%, transparent), color-mix(in srgb, var(--text) 7%, transparent)) 55% 72% / 1px 10rem no-repeat;
+}
+
+.name {
+  position: relative;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  line-height: 0.9;
+  transform: translateY(-3.5rem);
+}
+
+.line1,
+.line2 {
+  display: block;
+  font-size: clamp(4rem, 9vw, 9rem);
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--text);
+}
+
+.portrait {
+  position: relative;
+  width: clamp(11rem, 18vw, 18rem);
+  aspect-ratio: 1;
+  margin-top: clamp(1.5rem, 3vw, 2.75rem);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--text) 16%, transparent);
+  box-shadow: 0 1.5rem 4rem color-mix(in srgb, #000 18%, transparent);
+}
+
+.portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, #fff 14%, transparent);
+  pointer-events: none;
+}
+
+.portrait img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 42%;
+  transform: scale(1.72);
+}
+
+.bio {
+  position: relative;
+  flex: 1;
+  max-width: 480px;
+  margin-left: auto;
+}
+
+.rocketAnchor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.rocketMotion {
+  position: relative;
+}
+
+.bio p {
+  position: relative;
+  z-index: 2;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.highlightLink {
+  color: #ff4fa3;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.highlightLink:hover {
+  color: #ff79b8;
+}
+
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 6rem 6vw;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .name {
+    transform: translateY(0);
+  }
+
+  .portrait {
+    width: clamp(10rem, 52vw, 14rem);
+  }
+
+  .rocketAnchor {
+    top: 54%;
+  }
+
+  .about::before {
+    background:
+      linear-gradient(90deg, color-mix(in srgb, var(--text) 7%, transparent) 1px, transparent 1px) 0 0 / 3.5rem 3.5rem,
+      linear-gradient(color-mix(in srgb, var(--text) 7%, transparent) 1px, transparent 1px) 0 0 / 3.5rem 3.5rem,
+      linear-gradient(135deg, transparent 49.6%, color-mix(in srgb, var(--text) 12%, transparent) 50%, transparent 50.4%) 65% 22% / 12rem 12rem no-repeat;
+  }
+
+  .about::after {
+    background:
+      linear-gradient(color-mix(in srgb, var(--text) 12%, transparent), color-mix(in srgb, var(--text) 12%, transparent)) 8% 20% / 7rem 1px no-repeat,
+      linear-gradient(90deg, color-mix(in srgb, var(--text) 12%, transparent), color-mix(in srgb, var(--text) 12%, transparent)) 8% 20% / 1px 7rem no-repeat,
+      linear-gradient(color-mix(in srgb, var(--text) 7%, transparent), color-mix(in srgb, var(--text) 7%, transparent)) 52% 76% / 10rem 1px no-repeat,
+      linear-gradient(90deg, color-mix(in srgb, var(--text) 7%, transparent), color-mix(in srgb, var(--text) 7%, transparent)) 52% 69% / 1px 7rem no-repeat;
+  }
+
+  .bio {
+    max-width: 100%;
+    margin-left: 0;
+  }
+}
