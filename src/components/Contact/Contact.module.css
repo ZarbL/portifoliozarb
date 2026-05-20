@@ -9,6 +9,12 @@
   overflow: hidden;
 }
 
+@media (min-width: 1600px) {
+  .contact {
+    padding-inline: max(8vw, calc((100vw - 1480px) / 2));
+  }
+}
+
 .copy {
   display: grid;
   gap: 0.55rem;
@@ -233,5 +239,33 @@
 
   .socialList {
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 420px) {
+  .contact {
+    padding: 5.5rem 5vw;
+  }
+
+  .copy h2 {
+    font-size: clamp(2.8rem, 16vw, 4.8rem);
+  }
+
+  .formHeading {
+    margin: 1.4em;
+  }
+
+  .sendMessageBtn {
+    margin-bottom: 2em;
+  }
+
+  .iconContent a {
+    width: 44px;
+    height: 44px;
+  }
+
+  .iconContent a svg {
+    width: 25px;
+    height: 25px;
   }
 }

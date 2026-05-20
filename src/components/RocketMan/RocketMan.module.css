@@ -1,8 +1,8 @@
 .wrapper {
   position: relative;
-  width: clamp(7rem, 12vw, 10rem);
-  height: clamp(12rem, 20vw, 17rem);
-  overflow: hidden;
+  width: clamp(9rem, 14vw, 12rem);
+  height: clamp(14rem, 22vw, 19rem);
+  overflow: visible;
   opacity: 0.84;
 }
 
@@ -290,7 +290,7 @@
 @media (max-width: 768px) {
   .wrapper {
     width: 9rem;
-    height: 9rem;
+    height: 12rem;
   }
 
   .rocket {

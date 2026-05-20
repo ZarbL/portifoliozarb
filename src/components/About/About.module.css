@@ -12,6 +12,12 @@
   overflow: hidden;
 }
 
+@media (min-width: 1600px) {
+  .about {
+    padding-inline: max(8vw, calc((100vw - 1480px) / 2));
+  }
+}
+
 .about::before,
 .about::after {
   content: '';
@@ -98,7 +104,7 @@
 
 .rocketAnchor {
   position: absolute;
-  top: 50%;
+  top: 14%;
   left: 50%;
   z-index: 1;
   transform: translate(-50%, -50%);
@@ -147,7 +153,7 @@
   }
 
   .rocketAnchor {
-    top: 54%;
+    top: 14%;
   }
 
   .about::before {
@@ -168,5 +174,22 @@
   .bio {
     max-width: 100%;
     margin-left: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .about {
+    gap: 2rem;
+    padding: 5.5rem 5vw;
+  }
+
+  .line1,
+  .line2 {
+    font-size: clamp(3.2rem, 18vw, 4.5rem);
+  }
+
+  .bio p {
+    font-size: 1rem;
+    line-height: 1.65;
   }
 }

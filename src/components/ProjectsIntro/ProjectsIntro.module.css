@@ -10,6 +10,12 @@
   overflow: hidden;
 }
 
+@media (min-width: 1600px) {
+  .projectsIntro {
+    padding-inline: max(8vw, calc((100vw - 1480px) / 2));
+  }
+}
+
 .projectsIntro::before,
 .projectsIntro::after {
   content: '';
@@ -148,5 +154,15 @@
 @media (max-width: 768px) {
   .projectsIntro {
     padding: 6rem 6vw;
+  }
+}
+
+@media (max-width: 420px) {
+  .projectsIntro {
+    padding: 5.5rem 5vw;
+  }
+
+  .title {
+    font-size: clamp(3.4rem, 20vw, 5.5rem);
   }
 }

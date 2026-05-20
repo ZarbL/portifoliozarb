@@ -1,4 +1,6 @@
 .projectEmbed {
+  --project-preview-height: clamp(24rem, 48vw, 38rem);
+  --project-browser-height: 3rem;
   position: relative;
   min-height: 100svh;
   display: grid;
@@ -8,6 +10,13 @@
   padding: 8rem 8vw;
   background: var(--bg);
   overflow: hidden;
+}
+
+@media (min-width: 1600px) {
+  .projectEmbed {
+    grid-template-columns: minmax(320px, 0.68fr) minmax(560px, 1fr);
+    padding-inline: max(8vw, calc((100vw - 1480px) / 2));
+  }
 }
 
 .projectEmbed::after {
@@ -30,9 +39,18 @@
   order: -1;
 }
 
+.previewLeft {
+  grid-template-columns: minmax(520px, 1fr) minmax(240px, 0.62fr);
+}
+
+.previewLeft .copy {
+  justify-self: end;
+  margin-left: clamp(1rem, 4vw, 4rem);
+}
+
 .copy {
   display: grid;
-  gap: 1rem;
+  gap: 0.9rem;
   max-width: 33rem;
 }
 
@@ -69,12 +87,12 @@
 .copy p:not(.kicker) {
   color: var(--text-secondary);
   font-size: clamp(1rem, 1.25vw, 1.15rem);
-  line-height: 1.75;
+  line-height: 1.65;
 }
 
 .impactList {
   display: grid;
-  gap: 0.7rem;
+  gap: 0.58rem;
   margin: 0.35rem 0 0;
   padding: 0;
   list-style: none;
@@ -85,7 +103,7 @@
   padding-left: 1.15rem;
   color: var(--text-secondary);
   font-size: clamp(0.95rem, 1.1vw, 1.05rem);
-  line-height: 1.55;
+  line-height: 1.48;
 }
 
 .impactList li::before {
@@ -128,7 +146,7 @@
 .previewShell {
   position: relative;
   width: 100%;
-  min-height: clamp(24rem, 48vw, 38rem);
+  height: var(--project-preview-height);
   display: block;
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--text) 14%, transparent);
@@ -149,7 +167,7 @@
 }
 
 .browserBar {
-  height: 3rem;
+  height: var(--project-browser-height);
   display: flex;
   align-items: center;
   gap: 0.55rem;
@@ -189,15 +207,14 @@
 
 .preview {
   width: 100%;
-  height: calc(100% - 3rem);
-  min-height: calc(clamp(24rem, 48vw, 38rem) - 3rem);
+  height: calc(var(--project-preview-height) - var(--project-browser-height));
   display: block;
   border: 0;
   background: #fff;
 }
 
 .fallbackPreview {
-  min-height: calc(clamp(24rem, 48vw, 38rem) - 3rem);
+  height: calc(var(--project-preview-height) - var(--project-browser-height));
   display: grid;
   place-items: center;
   align-content: center;
@@ -214,7 +231,7 @@
 }
 
 .featurePreview {
-  min-height: calc(clamp(24rem, 48vw, 38rem) - 3rem);
+  height: calc(var(--project-preview-height) - var(--project-browser-height));
   display: grid;
   align-content: center;
   gap: 1rem;
@@ -268,6 +285,7 @@
 
 @media (max-width: 900px) {
   .projectEmbed {
+    --project-preview-height: 28rem;
     grid-template-columns: 1fr;
     gap: 3rem;
     padding: 6rem 6vw;
@@ -277,16 +295,58 @@
     order: 0;
   }
 
-  .previewShell {
-    min-height: 28rem;
+  .previewLeft {
+    grid-template-columns: 1fr;
   }
 
-  .preview {
-    min-height: 25rem;
+  .previewLeft .copy {
+    justify-self: start;
+    margin-left: 0;
   }
 
   .copy h2,
   .copy h2.compactTitle {
-    font-size: clamp(3rem, 15vw, 6.2rem);
+    font-size: clamp(3rem, 13vw, 6.2rem);
+  }
+}
+
+@media (max-width: 560px) {
+  .projectEmbed {
+    --project-preview-height: 22rem;
+    --project-browser-height: 2.6rem;
+    gap: 2rem;
+    padding: 5.5rem 5vw;
+  }
+
+  .projectEmbed::after {
+    left: 5vw;
+    right: 5vw;
+  }
+
+  .copy {
+    max-width: 100%;
+  }
+
+  .copy h2,
+  .copy h2.compactTitle {
+    font-size: clamp(2.45rem, 12vw, 4.2rem);
+  }
+
+  .copy h2 span {
+    white-space: normal;
+  }
+
+  .copy p:not(.kicker),
+  .impactList li {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .featurePreview {
+    padding: 1rem;
+  }
+
+  .featureImage {
+    aspect-ratio: 16 / 8.8;
   }
 }
