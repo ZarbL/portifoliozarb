@@ -1,6 +1,6 @@
 import { useTheme } from '../../contexts/ThemeContext'
-import logoDark from '../../assets/zarbdark.png'
-import logoWhite from '../../assets/zarbwhite.png'
+import logoDark from '../../assets/zarbdark.webp'
+import logoWhite from '../../assets/zarbwhite.webp'
 import styles from './Hero.module.css'
 
 export function Hero() {

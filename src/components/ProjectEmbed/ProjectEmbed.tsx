@@ -1,6 +1,6 @@
 import { FiExternalLink } from 'react-icons/fi'
-import senaiOne from '../../assets/senai1.png'
-import senaiTwo from '../../assets/senai2.png'
+import senaiOne from '../../assets/senai1.webp'
+import senaiTwo from '../../assets/senai2.webp'
 import styles from './ProjectEmbed.module.css'
 
 type Project = {

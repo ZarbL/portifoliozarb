@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import profilePhoto from '../../assets/luiszarbielli.jpg'
+import profilePhoto from '../../assets/luiszarbielli.webp'
 import { RocketMan } from '../RocketMan/RocketMan'
 import styles from './About.module.css'
 
