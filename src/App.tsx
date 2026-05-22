@@ -6,6 +6,7 @@ import { Stacks } from './components/Stacks/Stacks'
 import { ProjectsIntro } from './components/ProjectsIntro/ProjectsIntro'
 import { ProjectEmbed } from './components/ProjectEmbed/ProjectEmbed'
 import { Contact } from './components/Contact/Contact'
+import { ChatWidget } from './components/ChatWidget/ChatWidget'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <ProjectEmbed />
         <Contact />
       </main>
+      <ChatWidget />
     </ThemeProvider>
   )
 }
