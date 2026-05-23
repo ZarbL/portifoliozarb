@@ -22,7 +22,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     const stream = await groq.chat.completions.create({
       messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...messages],
-      model: 'llama-3.1-8b-instant',
+      model: 'llama-3.3-70b-versatile',
       max_tokens: 512,
       temperature: 0.7,
       stream: true,
