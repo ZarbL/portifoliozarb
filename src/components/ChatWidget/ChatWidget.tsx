@@ -64,8 +64,16 @@ export function ChatWidget() {
           if (payload === '[DONE]') break
           try {
             const { text, error } = JSON.parse(payload)
-            if (error) throw new Error(error)
-            if (text) {
+            if (error) {
+              setMessages(prev => {
+                const msgs = [...prev]
+                msgs[msgs.length - 1] = {
+                  role: 'assistant',
+                  content: error,
+                }
+                return msgs
+              })
+            } else if (text) {
               setMessages(prev => {
                 const msgs = [...prev]
                 msgs[msgs.length - 1] = {
