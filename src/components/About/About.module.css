@@ -135,6 +135,10 @@
   color: #ff79b8;
 }
 
+.downloadWrapper {
+  margin-top: 1.5rem;
+}
+
 @media (max-width: 768px) {
   .about {
     flex-direction: column;

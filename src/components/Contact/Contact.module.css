@@ -107,6 +107,26 @@
   color: color-mix(in srgb, #f4d8e8 48%, transparent);
 }
 
+.successMsg {
+  margin: 0;
+  padding: 0.6em 1em;
+  border-radius: 8px;
+  background-color: color-mix(in srgb, #01e056 12%, transparent);
+  color: #01e056;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.errorMsg {
+  margin: 0;
+  padding: 0.6em 1em;
+  border-radius: 8px;
+  background-color: color-mix(in srgb, #ff4f4f 12%, transparent);
+  color: #ff6b6b;
+  font-size: 0.9em;
+  text-align: center;
+}
+
 .sendMessageBtn {
   margin-bottom: 3em;
   padding: 1em;
@@ -120,10 +140,15 @@
   transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
-.sendMessageBtn:hover {
+.sendMessageBtn:hover:not(:disabled) {
   background-color: #ff4fa3;
   box-shadow: inset 2px 5px 10px rgb(5 5 5);
   color: #000;
+}
+
+.sendMessageBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .socialList {

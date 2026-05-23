@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import profilePhoto from '../../assets/luiszarbielli.webp'
 import { RocketMan } from '../RocketMan/RocketMan'
+import { DownloadButton } from '../DownloadButton/DownloadButton'
 import styles from './About.module.css'
 
 export function About() {
@@ -81,6 +82,9 @@ export function About() {
           Sou movido por criar soluções digitais eficientes, bem pensadas e com
           impacto real.
         </p>
+        <div className={styles.downloadWrapper}>
+          <DownloadButton />
+        </div>
       </motion.div>
     </section>
   )
