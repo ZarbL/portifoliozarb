@@ -39,18 +39,51 @@ export function ChatWidget() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: updated }),
       })
-      const data = await res.json()
-      setMessages(prev => [
-        ...prev,
-        { role: 'assistant', content: data.reply ?? 'Sem resposta.' },
-      ])
+
+      if (!res.body) throw new Error('No stream')
+
+      const reader = res.body.getReader()
+      const decoder = new TextDecoder()
+
+      setMessages(prev => [...prev, { role: 'assistant', content: '' }])
+      setIsLoading(false)
+
+      let buffer = ''
+
+      while (true) {
+        const { done, value } = await reader.read()
+        if (done) break
+
+        buffer += decoder.decode(value, { stream: true })
+        const lines = buffer.split('\n')
+        buffer = lines.pop() ?? ''
+
+        for (const line of lines) {
+          if (!line.startsWith('data: ')) continue
+          const payload = line.slice(6).trim()
+          if (payload === '[DONE]') break
+          try {
+            const { text, error } = JSON.parse(payload)
+            if (error) throw new Error(error)
+            if (text) {
+              setMessages(prev => {
+                const msgs = [...prev]
+                msgs[msgs.length - 1] = {
+                  role: 'assistant',
+                  content: msgs[msgs.length - 1].content + text,
+                }
+                return msgs
+              })
+            }
+          } catch { /* chunk malformado, ignora */ }
+        }
+      }
     } catch {
+      setIsLoading(false)
       setMessages(prev => [
         ...prev,
         { role: 'assistant', content: 'Erro ao obter resposta. Tente novamente.' },
       ])
-    } finally {
-      setIsLoading(false)
     }
   }
 
